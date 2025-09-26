@@ -21,14 +21,18 @@ def atualiza(bola, dt):
     #
     # ************ INCLUA ABAIXO O SEU CÓDIGO ************* #
 
-    # determina se as setas esquerda e direita do teclado foram pressionadas
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
-        # INCLUA AQUI INSTRUÇÕES QUE DEVEM SER EXECUTADAS QUANDO O USUÁRIO PRESSIONAR A SETA ESQUERDA DO TECLADO
-        pass
+        x -= VEL_X * dt
     if keys[pygame.K_RIGHT]:
-        # INCLUA AQUI INSTRUÇÕES QUE DEVEM SER EXECUTADAS QUANDO O USUÁRIO PRESSIONAR A SETA DIREITA DO TECLADO
-        pass
+        x += VEL_X * dt
+
+    vy += GRAVIDADE * dt
+    y += vy * dt
+
+    if y >= CHAO:
+        y = CHAO
+        vy = VEL_Y0
 
     # ***************************************************** #
 
